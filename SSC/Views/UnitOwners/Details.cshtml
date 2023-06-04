@@ -1,0 +1,54 @@
+﻿@model SSC.Models.UnitOwner
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>UnitOwner</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OwnerName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OwnerName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ContactNo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ContactNo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsResidentInComplex)
+        </dt>
+        @*<dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsResidentInComplex)
+        </dd>*@
+        <dd class="col-sm-2">
+            @Html.RadioButtonFor(m => m.IsResidentInComplex, "1" ) <span>Yes</span>
+            @Html.RadioButtonFor(m => m.IsResidentInComplex, "0" ) <span>No</span>            
+            @Html.HiddenFor(m=>m.IsResidentInComplex)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.UnitNo">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

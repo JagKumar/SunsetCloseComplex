@@ -1,0 +1,76 @@
+﻿@model IEnumerable<SSC.Models.UnitOwner>
+
+@{
+    ViewData["Title"] = "Index";
+    
+}
+
+<style>
+    #test1 {
+        display: none;
+    }
+
+    #footer1 {
+        display: none;
+    }
+</style>
+<br />
+<br />
+<br />
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New1</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OwnerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsResidentInComplex)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>                    
+                @Html.DisplayFor(modelItem => item.IsResidentInComplex,"CustomInt")
+                    
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UnitNo">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.UnitNo">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.UnitNo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+  </table>
+
